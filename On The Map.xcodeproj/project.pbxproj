@@ -22,6 +22,7 @@
 		3AA7F55F23FA282E00B3CFF0 /* AddLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA7F55E23FA282E00B3CFF0 /* AddLocationController.swift */; };
 		3AA7F56123FA290200B3CFF0 /* SaveLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA7F56023FA290200B3CFF0 /* SaveLocationController.swift */; };
 		3AA7F56323FA62F000B3CFF0 /* CreateStudentLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA7F56223FA62F000B3CFF0 /* CreateStudentLocationResponse.swift */; };
+		3AA7F56623FB233800B3CFF0 /* StudentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA7F56523FB233800B3CFF0 /* StudentCell.swift */; };
 		3ACB026323F77418002FE93E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACB026223F77418002FE93E /* AppDelegate.swift */; };
 		3ACB026523F77418002FE93E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACB026423F77418002FE93E /* SceneDelegate.swift */; };
 		3ACB026723F77418002FE93E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACB026623F77418002FE93E /* LoginViewController.swift */; };
@@ -46,6 +47,7 @@
 		3AA7F55E23FA282E00B3CFF0 /* AddLocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationController.swift; sourceTree = "<group>"; };
 		3AA7F56023FA290200B3CFF0 /* SaveLocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLocationController.swift; sourceTree = "<group>"; };
 		3AA7F56223FA62F000B3CFF0 /* CreateStudentLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStudentLocationResponse.swift; sourceTree = "<group>"; };
+		3AA7F56523FB233800B3CFF0 /* StudentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCell.swift; sourceTree = "<group>"; };
 		3ACB025F23F77418002FE93E /* On The Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On The Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ACB026223F77418002FE93E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3ACB026423F77418002FE93E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +94,17 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		3AA7F56423FB200F00B3CFF0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3ACB026823F77418002FE93E /* Main.storyboard */,
+				3ACB026D23F77418002FE93E /* LaunchScreen.storyboard */,
+				3ACB026B23F77418002FE93E /* Assets.xcassets */,
+				3AA7F56523FB233800B3CFF0 /* StudentCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		3ACB025623F77418002FE93E = {
 			isa = PBXGroup;
 			children = (
@@ -111,14 +124,12 @@
 		3ACB026123F77418002FE93E /* On The Map */ = {
 			isa = PBXGroup;
 			children = (
+				3AA7F56423FB200F00B3CFF0 /* View */,
 				3A289BD823F8EAE800D7C2F6 /* Network */,
 				3A99D9EE23F8645D007C8524 /* Model */,
 				3ACB027623F774D7002FE93E /* Controller */,
 				3ACB026223F77418002FE93E /* AppDelegate.swift */,
 				3ACB026423F77418002FE93E /* SceneDelegate.swift */,
-				3ACB026823F77418002FE93E /* Main.storyboard */,
-				3ACB026B23F77418002FE93E /* Assets.xcassets */,
-				3ACB026D23F77418002FE93E /* LaunchScreen.storyboard */,
 				3ACB027023F77418002FE93E /* Info.plist */,
 			);
 			path = "On The Map";
@@ -219,6 +230,7 @@
 				3AA7F56123FA290200B3CFF0 /* SaveLocationController.swift in Sources */,
 				3A58995023F9170200C383DC /* Session.swift in Sources */,
 				3AA7F56323FA62F000B3CFF0 /* CreateStudentLocationResponse.swift in Sources */,
+				3AA7F56623FB233800B3CFF0 /* StudentCell.swift in Sources */,
 				3A40CDF623F8FC2900116F42 /* UdacityApi.swift in Sources */,
 				3A58995223F91EFF00C383DC /* ApiError.swift in Sources */,
 				3AA7F55F23FA282E00B3CFF0 /* AddLocationController.swift in Sources */,

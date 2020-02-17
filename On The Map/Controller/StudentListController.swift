@@ -46,11 +46,12 @@ extension StudentListController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StudentInfoCell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StudentInfoCell") as! StudentCell
         
         let studentInformation = usersData?[indexPath.row]
         
-        cell.textLabel?.text = "\(studentInformation?.firstName ?? "No name") \(studentInformation?.lastName ?? "")"
+        cell.firstLastName?.text = "\(studentInformation?.firstName ?? "No name") \(studentInformation?.lastName ?? "")"
+        cell.link?.text = studentInformation?.mediaURL ?? "No url provided"
         
         return cell
     }
