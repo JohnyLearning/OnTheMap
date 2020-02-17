@@ -10,7 +10,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginView" id="BYZ-38-t0r" customClass="LoginViewController" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,6 +64,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9p-H1-d4T">
                                         <rect key="frame" x="185" y="0.0" width="52" height="30"/>
                                         <state key="normal" title="Sign up"/>
+                                        <connections>
+                                            <action selector="signUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Uha-3J-zNn"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -181,13 +184,22 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="On the map" id="ZTk-s3-DG1">
+                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="zzA-Vr-5GE">
+                            <connections>
+                                <action selector="logout:" destination="xiQ-Dp-t5l" id="kco-6J-QL4"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="icon_addpin" id="yk5-RV-Vla">
                                 <connections>
                                     <segue destination="SKe-dF-zWh" kind="show" id="U3G-u9-daX"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Item" image="icon_refresh" id="yJx-Dd-Tsp"/>
+                            <barButtonItem title="Item" image="icon_refresh" id="yJx-Dd-Tsp">
+                                <connections>
+                                    <action selector="refresh:" destination="xiQ-Dp-t5l" id="d9T-Wq-geS"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -237,13 +249,22 @@
                         <viewLayoutGuide key="safeArea" id="Gzg-tS-aYP"/>
                     </view>
                     <navigationItem key="navigationItem" title="On the map" id="dQ3-mc-DZP">
+                        <barButtonItem key="leftBarButtonItem" title="LOGOUT" id="L16-dG-nCM">
+                            <connections>
+                                <action selector="logout:" destination="LXQ-7g-8pq" id="nn3-OT-Lh0"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="icon_addpin" id="ubL-In-DdD">
                                 <connections>
                                     <segue destination="SKe-dF-zWh" kind="show" id="nDJ-dw-utJ"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Item" image="icon_refresh" id="m7B-fo-Bx1"/>
+                            <barButtonItem title="Item" image="icon_refresh" id="m7B-fo-Bx1">
+                                <connections>
+                                    <action selector="refresh:" destination="LXQ-7g-8pq" id="ONu-Ae-QRu"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -402,6 +423,6 @@
         <image name="logo-u" width="62" height="62"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="U3G-u9-daX"/>
+        <segue reference="nDJ-dw-utJ"/>
     </inferredMetricsTieBreakers>
 </document>

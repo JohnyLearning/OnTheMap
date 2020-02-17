@@ -24,7 +24,12 @@ class LoginViewController: UIViewController {
         
     }
     
-    func handleSessionResponse(result: Bool, error: Error?) {
+    @IBAction func signUp(_ sender: Any) {
+        UIApplication.shared.open(URL(string: "https://auth.udacity.com/sign-up")!, options: [:], completionHandler: nil)
+    }
+    
+    
+    private func handleSessionResponse(result: Bool, error: Error?) {
         setLoggingIn(false)
         if result {
             if let studentLookupTabBar = self.storyboard?.instantiateViewController(withIdentifier: "StudentTabBar") {

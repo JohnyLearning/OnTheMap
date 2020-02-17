@@ -17,6 +17,22 @@ class StudentListController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getStudentLocations()
+    }
+    
+    @IBAction func refresh(_ sender: Any) {
+        getStudentLocations()
+    }
+    
+    @IBAction func logout(_ sender: Any) {
+        UdacityApi.deleteSession()
+        if let loginView = self.storyboard?.instantiateViewController(withIdentifier: "LoginView") {
+            self.view.window?.rootViewController = loginView
+        }
+    }
+    
+    
+    private func getStudentLocations() {
         _ = UdacityApi.getStudentLocations() { studentLocationsResponse, error in
             if let studentLocations: [StudentInformation] = studentLocationsResponse?.results {
                 self.usersData = studentLocations
@@ -30,7 +46,6 @@ class StudentListController: UIViewController {
             }
         }
     }
-    
 }
 
 extension StudentListController: UITableViewDataSource, UITableViewDelegate {

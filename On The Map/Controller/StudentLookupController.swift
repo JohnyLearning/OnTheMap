@@ -10,12 +10,27 @@ import Foundation
 import UIKit
 import MapKit
 
-class StudentLookupController: UIViewController, MKMapViewDelegate {
+class StudentLookupController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         mapView.delegate = self
+        getStudentLocations()
+    }
+    
+    @IBAction func refresh(_ sender: Any) {
+        getStudentLocations()
+    }
+    
+    @IBAction func logout(_ sender: Any) {
+        UdacityApi.deleteSession()
+        if let loginView = self.storyboard?.instantiateViewController(withIdentifier: "LoginView") {
+            self.view.window?.rootViewController = loginView
+        }
+    }
+    
+    private func getStudentLocations() {
         _ = UdacityApi.getStudentLocations() { studentLocationsResponse, error in
             if let studentLocations: [StudentInformation] = studentLocationsResponse?.results {
                 var annotations = [MKPointAnnotation]()
@@ -47,6 +62,9 @@ class StudentLookupController: UIViewController, MKMapViewDelegate {
             }
         }
     }
+}
+
+extension StudentLookupController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
