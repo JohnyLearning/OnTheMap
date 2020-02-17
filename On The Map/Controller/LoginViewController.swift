@@ -13,7 +13,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var facebookLogin: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBAction func login(_ sender: Any) {
@@ -45,7 +44,6 @@ class LoginViewController: UIViewController {
         email.isEnabled = !loggingIn
         password.isEnabled = !loggingIn
         loginButton.isEnabled = !loggingIn
-        facebookLogin.isEnabled = !loggingIn
     }
     
     private func showLoginFailure(message: String) {

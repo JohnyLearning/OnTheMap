@@ -9,7 +9,7 @@
 import Foundation
 
 struct ApiError: Codable {
-    let status: String
+    let status: Int
     let error: String
 }
 
