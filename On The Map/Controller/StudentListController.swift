@@ -23,6 +23,12 @@ class StudentListController: UIViewController {
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
+            } else {
+                DispatchQueue.main.async {
+                    let alertVC = UIAlertController(title: "List Load Failed", message: error?.localizedDescription ?? "Something went wrong!", preferredStyle: .alert)
+                    alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alertVC, animated: true, completion: nil)
+                }
             }
         }
     }
