@@ -25,9 +25,7 @@ class StudentListController: UIViewController {
                 }
             } else {
                 DispatchQueue.main.async {
-                    let alertVC = UIAlertController(title: "List Load Failed", message: error?.localizedDescription ?? "Something went wrong!", preferredStyle: .alert)
-                    alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    self.present(alertVC, animated: true, completion: nil)
+                    self.showFailure(title: "List Load Failed", localizedMessage: error?.localizedDescription ?? "Something went wrong!")
                 }
             }
         }
@@ -57,8 +55,21 @@ extension StudentListController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        selectedIndex = indexPath.row
-//        performSegue(withIdentifier: "showDetail", sender: nil)
-//        tableView.deselectRow(at: indexPath, animated: true)
+        let studentInfo = usersData?[indexPath.row]
+        if let url = URL(string: studentInfo?.mediaURL! ?? "") {
+            UIApplication.shared.open(url, options: [:]) { result in
+                if !result {
+                    self.showFailure(title: "Open URL", localizedMessage: "Open URL Failed: \(studentInfo?.mediaURL ?? "")")
+                }
+            }
+        } else {
+            showFailure(title: "Open URL", localizedMessage: "Open URL Failed due to empty url")
+        }
+    }
+    
+    private func showFailure(title: String, localizedMessage: String?) {
+        let alertVC = UIAlertController(title: title, message: localizedMessage ?? "Something went wrong!", preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alertVC, animated: true, completion: nil)
     }
 }
