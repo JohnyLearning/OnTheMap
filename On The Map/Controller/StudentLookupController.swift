@@ -18,22 +18,23 @@ class StudentLookupController: UIViewController, MKMapViewDelegate {
         _ = UdacityApi.getStudentLocations() { studentLocationsResponse, error in
             if let studentLocations: [StudentInformation] = studentLocationsResponse?.results {
                 var annotations = [MKPointAnnotation]()
-                
                 for studentInformation in studentLocations {
-                    let lat = CLLocationDegrees(studentInformation.latitude)
-                    let long = CLLocationDegrees(studentInformation.longitude)
-                    let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
-                    
-                    let first = studentInformation.firstName
-                    let last = studentInformation.lastName
-                    let mediaURL = studentInformation.mediaURL
-                    
-                    let annotation = MKPointAnnotation()
-                    annotation.coordinate = coordinate
-                    annotation.title = "\(first) \(last)"
-                    annotation.subtitle = mediaURL
-                    
-                    annotations.append(annotation)
+                    if let latitude = studentInformation.latitude {
+                        if let longtitude = studentInformation.longitude {
+                            let coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(latitude), longitude: CLLocationDegrees(longtitude))
+                            
+                            let first = studentInformation.firstName
+                            let last = studentInformation.lastName
+                            let mediaURL = studentInformation.mediaURL
+                            
+                            let annotation = MKPointAnnotation()
+                            annotation.coordinate = coordinate
+                            annotation.title = "\(first ?? "No first name") \(last ?? "No last name")"
+                            annotation.subtitle = mediaURL
+                            
+                            annotations.append(annotation)
+                        }
+                    }
                 }
                 self.mapView.addAnnotations(annotations)
             }

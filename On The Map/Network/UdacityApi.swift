@@ -15,12 +15,14 @@ class UdacityApi: BaseApi {
         
         case createSession
         case studentLocations(Int, Int, String, String)
+        case createStudentLocation
         
         var stringValue: String {
             switch self {
             case .createSession: return Endpoints.base + "/session"
             case .studentLocations(let limit, let skip, let order, let uniqueKey):
                 return Endpoints.base + "/StudentLocation?limit=\(limit)&skip=\(skip)&order=\(order)&uniqueKey=\(uniqueKey)"
+            case .createStudentLocation: return Endpoints.base + "/StudentLocation"
             }
         }
         
@@ -43,10 +45,20 @@ class UdacityApi: BaseApi {
         }
     }
 
-    class func getStudentLocations(limit: Int = 100, skip: Int = 0, order: String = "", uniqueKey: String = "", completion: @escaping (StudentLocationsResponse?, Error?) -> Void) {
+    class func getStudentLocations(limit: Int = 100, skip: Int = 0, order: String = "-updatedAt", uniqueKey: String = "", completion: @escaping (StudentLocationsResponse?, Error?) -> Void) {
         taskForGETRequest(url: Endpoints.studentLocations(limit, skip, order, uniqueKey).url, responseType: StudentLocationsResponse.self) { response, error in
             if let response = response {
                 completion(response, nil)
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+    
+    class func createStudentLocation(studentInformation: StudentInformation, completion: @escaping (String?, Error?) -> Void) {
+        UdacityApi.taskForPOSTRequest(url: Endpoints.createStudentLocation.url, responseType: CreateStudentLocationResponse.self, body: studentInformation) { response, error in
+            if let response = response {
+                completion(response.objectId, nil)
             } else {
                 completion(nil, error)
             }

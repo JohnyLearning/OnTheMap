@@ -10,15 +10,24 @@ import Foundation
 
 struct StudentInformation: Codable {
     
-    let createdAt: String
-    let firstName: String
-    let lastName: String
-    let latitude: Double
-    let longitude:Double
-    let mapString: String
-    let mediaURL: String
-    let objectId: String
-    let uniqueKey: String
-    let updatedAt: String
+    var createdAt: String?
+    var firstName: String? = "Johny"
+    var lastName: String? = "Bravo"
+    var latitude: Double? = 0.0
+    var longitude: Double? = 0.0
+    var mapString: String?
+    var mediaURL: String?
+    var objectId: String?
+    var uniqueKey: String? = "1234567890"
+    var updatedAt: String?
+    
+}
+
+extension StudentInformation {
+    
+    init(mapString: String, mediaURL: String) {
+        self.mapString = mapString
+        self.mediaURL = mediaURL
+    }
     
 }

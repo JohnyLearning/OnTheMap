@@ -28,8 +28,9 @@ class LoginViewController: UIViewController {
     func handleSessionResponse(result: Bool, error: Error?) {
         setLoggingIn(false)
         if result {
-            if let studentLookupController = self.storyboard?.instantiateViewController(withIdentifier: "StudentLookupController") {
-                self.present (studentLookupController, animated: true, completion: nil)}
+            if let studentLookupTabBar = self.storyboard?.instantiateViewController(withIdentifier: "StudentTabBar") {
+                self.view.window?.rootViewController = studentLookupTabBar
+            }
         } else {
             showLoginFailure(message: error?.localizedDescription ?? "")
         }
