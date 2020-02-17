@@ -40,29 +40,31 @@ class SaveLocationController: UIViewController {
         if let studentInformation = self.location {
             UdacityApi.createStudentLocation(studentInformation: studentInformation) { (objectId, error)  in
                 guard error == nil else {
-                    let alert = UIAlertController(title: "Wrror", message: "location not found", preferredStyle: .alert )
-                        alert.addAction(UIAlertAction (title: "OK", style: .default, handler: { _ in
-                            return
-                    }))
-                    self.present(alert, animated: true, completion: nil)
-                            return
-                    }
+                    self.showFailure(message: error?.localizedDescription ?? "Something went wrong!")
+                    return
+                }
                 if let objectId = objectId {
                     DispatchQueue.main.async {
                         if let Controller = self.storyboard?.instantiateViewController(withIdentifier: "StudentTabBar") {
-                            self.present(Controller, animated: true, completion: nil)}
+                            self.present(Controller, animated: true, completion: nil)
+                        }
                     }
-                }else{
-                    let alert = UIAlertController(title: "Erorr", message: "error in post location", preferredStyle: .alert )
-                        alert.addAction(UIAlertAction (title: "OK", style: .default, handler: { _ in
-                            return
-                    }))
-                    self.present(alert, animated: true, completion: nil)
+                } else {
+                    self.showFailure(message: "Something went wrong!")
                     return
                 }
             }
         }
     }
+    
+    private func showFailure(message: String) {
+        let alert = UIAlertController(title: "Save location", message: message, preferredStyle: .alert )
+            alert.addAction(UIAlertAction (title: "OK", style: .default, handler: { _ in
+                return
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 extension SaveLocationController: MKMapViewDelegate {

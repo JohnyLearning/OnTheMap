@@ -46,7 +46,7 @@ class BaseApi {
         return task
     }
     
-    class func taskForPOSTRequest<RequestType: Encodable, ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, body: RequestType, completion: @escaping (ResponseType?, Error?) -> Void) {
+    class func taskForPOSTRequest<RequestType: Encodable, ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, body: RequestType, needCleanup: Bool = true, completion: @escaping (ResponseType?, Error?) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.httpBody = try! JSONEncoder().encode(body)
@@ -61,7 +61,7 @@ class BaseApi {
             }
             logResponse(data: data)
             let range = 5..<data.count
-            let newData = data.subdata(in: range) /* subset response data! */
+            let newData = needCleanup ? data.subdata(in: range) : data
             let decoder = JSONDecoder()
             do {
                 let responseObject = try decoder.decode(ResponseType.self, from: newData)

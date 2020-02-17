@@ -284,22 +284,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_world" translatesAutoresizingMaskIntoConstraints="NO" id="0E5-0I-OSk">
-                                <rect key="frame" x="20" y="138" width="374" height="139"/>
+                                <rect key="frame" x="152.5" y="102" width="109" height="109"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="109" id="VDz-Ke-uRj"/>
+                                    <constraint firstAttribute="width" constant="109" id="YuV-6s-gad"/>
+                                </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eXT-IJ-xbm">
-                                <rect key="frame" x="20" y="320" width="374" height="34"/>
+                                <rect key="frame" x="20" y="230" width="374" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="eXT-IJ-xbm" secondAttribute="height" multiplier="11:1" id="cIh-tP-ecD"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="location"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="URL (for example: http://linkedin.com/in/johnsmith)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C8j-dt-hGz">
-                                <rect key="frame" x="20" y="362" width="374" height="34"/>
+                                <rect key="frame" x="20" y="272" width="374" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="C8j-dt-hGz" secondAttribute="height" multiplier="11:1" id="WCj-8u-d9m"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="url"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBR-nv-KOl">
-                                <rect key="frame" x="20" y="433" width="374" height="30"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="yvr-J5-Bu0">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBR-nv-KOl">
+                                <rect key="frame" x="71" y="334" width="272" height="30"/>
                                 <color key="backgroundColor" red="0.29651886224746704" green="0.63113117218017578" blue="0.84711498022079468" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fBR-nv-KOl" secondAttribute="height" multiplier="136:15" id="tCT-Gt-fOe"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="FIND LOCATION">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -308,26 +324,18 @@
                                     <action selector="findButton:" destination="SKe-dF-zWh" eventType="touchUpInside" id="wa0-qy-M7k"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="yvr-J5-Bu0">
-                                <rect key="frame" x="197" y="438" width="20" height="20"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="C8j-dt-hGz" firstAttribute="leading" secondItem="obl-gb-lD1" secondAttribute="leading" constant="20" id="572-m1-v9U"/>
-                            <constraint firstItem="obl-gb-lD1" firstAttribute="bottom" secondItem="0E5-0I-OSk" secondAttribute="bottom" constant="536" id="FCB-Zc-VhH"/>
-                            <constraint firstItem="0E5-0I-OSk" firstAttribute="centerX" secondItem="E2h-vV-aUI" secondAttribute="centerX" id="PDs-sX-vwX"/>
-                            <constraint firstItem="obl-gb-lD1" firstAttribute="bottom" secondItem="C8j-dt-hGz" secondAttribute="bottom" constant="417" id="Q2c-n9-zZQ"/>
-                            <constraint firstItem="eXT-IJ-xbm" firstAttribute="top" secondItem="0E5-0I-OSk" secondAttribute="bottom" constant="43" id="TH7-Ff-YAc"/>
-                            <constraint firstItem="yvr-J5-Bu0" firstAttribute="centerX" secondItem="E2h-vV-aUI" secondAttribute="centerX" id="hOk-A5-1lu"/>
-                            <constraint firstItem="obl-gb-lD1" firstAttribute="trailing" secondItem="0E5-0I-OSk" secondAttribute="trailing" constant="20" id="j2c-Gv-xop"/>
-                            <constraint firstItem="yvr-J5-Bu0" firstAttribute="centerY" secondItem="E2h-vV-aUI" secondAttribute="centerY" id="kVG-S7-zvz"/>
-                            <constraint firstItem="eXT-IJ-xbm" firstAttribute="leading" secondItem="obl-gb-lD1" secondAttribute="leading" constant="20" id="pRc-ax-d1w"/>
-                            <constraint firstItem="0E5-0I-OSk" firstAttribute="leading" secondItem="obl-gb-lD1" secondAttribute="leading" constant="20" id="uc7-i7-4sL"/>
-                            <constraint firstItem="C8j-dt-hGz" firstAttribute="top" secondItem="eXT-IJ-xbm" secondAttribute="bottom" constant="8" id="vl3-ln-fij"/>
-                            <constraint firstItem="obl-gb-lD1" firstAttribute="trailing" secondItem="eXT-IJ-xbm" secondAttribute="trailing" constant="20" id="x91-TB-xdH"/>
-                            <constraint firstItem="0E5-0I-OSk" firstAttribute="top" secondItem="obl-gb-lD1" secondAttribute="top" constant="50" id="z6C-uU-ptM"/>
-                            <constraint firstItem="obl-gb-lD1" firstAttribute="trailing" secondItem="C8j-dt-hGz" secondAttribute="trailing" constant="20" id="zjr-j0-TUn"/>
+                            <constraint firstItem="eXT-IJ-xbm" firstAttribute="centerX" secondItem="E2h-vV-aUI" secondAttribute="centerX" id="2dW-Pg-sio"/>
+                            <constraint firstItem="C8j-dt-hGz" firstAttribute="top" secondItem="eXT-IJ-xbm" secondAttribute="bottom" constant="8" id="3Ue-cn-BQI"/>
+                            <constraint firstItem="0E5-0I-OSk" firstAttribute="top" secondItem="obl-gb-lD1" secondAttribute="top" constant="14" id="6kl-MP-Pzq"/>
+                            <constraint firstItem="fBR-nv-KOl" firstAttribute="centerX" secondItem="E2h-vV-aUI" secondAttribute="centerX" id="FAq-zM-AMb"/>
+                            <constraint firstItem="obl-gb-lD1" firstAttribute="bottom" secondItem="0E5-0I-OSk" secondAttribute="bottom" constant="602" id="LeC-ad-tYx"/>
+                            <constraint firstItem="C8j-dt-hGz" firstAttribute="centerX" secondItem="E2h-vV-aUI" secondAttribute="centerX" id="m76-Kh-lA5"/>
+                            <constraint firstItem="eXT-IJ-xbm" firstAttribute="top" secondItem="0E5-0I-OSk" secondAttribute="bottom" constant="19" id="n7L-Kp-b6b"/>
+                            <constraint firstItem="0E5-0I-OSk" firstAttribute="centerX" secondItem="E2h-vV-aUI" secondAttribute="centerX" id="rW0-mV-1u3"/>
+                            <constraint firstItem="fBR-nv-KOl" firstAttribute="top" secondItem="C8j-dt-hGz" secondAttribute="bottom" constant="28" id="rnT-Q6-Bk7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="obl-gb-lD1"/>
                     </view>

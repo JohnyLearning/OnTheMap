@@ -79,7 +79,7 @@ class UdacityApi: BaseApi {
     }
     
     class func createStudentLocation(studentInformation: StudentInformation, completion: @escaping (String?, Error?) -> Void) {
-        UdacityApi.taskForPOSTRequest(url: Endpoints.createStudentLocation.url, responseType: CreateStudentLocationResponse.self, body: studentInformation) { response, error in
+        taskForPOSTRequest(url: Endpoints.createStudentLocation.url, responseType: CreateStudentLocationResponse.self, body: studentInformation, needCleanup: false) { response, error in
             if let response = response {
                 completion(response.objectId, nil)
             } else {
