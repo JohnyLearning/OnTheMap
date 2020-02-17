@@ -15,6 +15,7 @@ class StudentLookupController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
+        mapView.delegate = self
         _ = UdacityApi.getStudentLocations() { studentLocationsResponse, error in
             if let studentLocations: [StudentInformation] = studentLocationsResponse?.results {
                 var annotations = [MKPointAnnotation]()
