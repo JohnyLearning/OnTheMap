@@ -45,9 +45,8 @@ class SaveLocationController: UIViewController {
                 }
                 if let objectId = objectId {
                     DispatchQueue.main.async {
-                        if let Controller = self.storyboard?.instantiateViewController(withIdentifier: "StudentTabBar") {
-                            self.present(Controller, animated: true, completion: nil)
-                        }
+                        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+                        self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
                     }
                 } else {
                     self.showError(title: "Save location", message: nil)

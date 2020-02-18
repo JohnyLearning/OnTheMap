@@ -33,7 +33,8 @@ class LoginViewController: UIViewController {
         setLoggingIn(false)
         if result {
             if let studentLookupTabBar = self.storyboard?.instantiateViewController(withIdentifier: "StudentTabBar") {
-                self.present (studentLookupTabBar, animated: true, completion: nil)
+                studentLookupTabBar.modalPresentationStyle = .fullScreen
+                self.present(studentLookupTabBar, animated: true)
             }
 
         } else {
