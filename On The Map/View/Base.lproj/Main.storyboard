@@ -105,11 +105,11 @@
             </objects>
             <point key="canvasLocation" x="-1517.3913043478262" y="102.45535714285714"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="M0P-Ti-lgk">
             <objects>
                 <navigationController id="K42-nm-5o6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="icon_listview-deselected" selectedImage="icon_listview-selected" id="SKf-RX-tAF"/>
+                    <tabBarItem key="tabBarItem" title="" image="icon_listview-deselected" selectedImage="icon_listview-selected" id="SKf-RX-tAF"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fVe-eH-kB4">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -210,11 +210,11 @@
             </objects>
             <point key="canvasLocation" x="1863.7681159420292" y="478.79464285714283"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="vOG-8c-WFS">
             <objects>
                 <navigationController id="8WA-r9-AzN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="icon_mapview-deselected" selectedImage="icon_mapview-selected" id="2WP-xF-R61"/>
+                    <tabBarItem key="tabBarItem" title="" image="icon_mapview-deselected" selectedImage="icon_mapview-selected" id="2WP-xF-R61"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5RR-vi-HiA">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
