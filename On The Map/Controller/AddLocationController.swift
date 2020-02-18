@@ -17,7 +17,6 @@ class AddLocationController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBAction func findButton(_ sender: Any) {
-        activityIndicator.isHidden = false
         guard let location = location.text, let url = url.text,
             location != "", url != "" else {
                 let alert = UIAlertController(title: "Geolocation", message: "Location and URL cannot be empty", preferredStyle: .alert )
@@ -27,19 +26,20 @@ class AddLocationController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
                 return
         }
+        activityIndicator.isHidden = false
         let studentLocation = StudentInformation(mapString: location, mediaURL: url)
         findLocation(studentLocation)
     }
     
     func findLocation(_ search: StudentInformation){
         CLGeocoder().geocodeAddressString(search.mapString!) { (placemarks, error) in
+            self.activityIndicator.isHidden = true
             guard let firstLocation = placemarks?.first?.location else {
                 let alert = UIAlertController(title: "Geolocation", message: "Location not found!", preferredStyle: .alert )
                 alert.addAction(UIAlertAction (title: "OK", style: .default, handler: { _ in
                     return
                 }))
                 self.present(alert, animated: true, completion: nil)
-                self.activityIndicator.isHidden = false
                 return
             }
             var location = search
@@ -50,7 +50,6 @@ class AddLocationController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        activityIndicator.isHidden = false
         if segue.identifier == "SaveLocation", let saveLocationController = segue.destination as? SaveLocationController {
             saveLocationController.location = (sender as! StudentInformation)
         }

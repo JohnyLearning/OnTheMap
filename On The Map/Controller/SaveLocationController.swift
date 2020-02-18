@@ -40,7 +40,7 @@ class SaveLocationController: UIViewController {
         if let studentInformation = self.location {
             UdacityApi.createStudentLocation(studentInformation: studentInformation) { (objectId, error)  in
                 guard error == nil else {
-                    self.showFailure(message: error?.localizedDescription ?? "Something went wrong!")
+                    self.showError(title: "Save location", message: error?.localizedDescription)
                     return
                 }
                 if let objectId = objectId {
@@ -50,19 +50,11 @@ class SaveLocationController: UIViewController {
                         }
                     }
                 } else {
-                    self.showFailure(message: "Something went wrong!")
+                    self.showError(title: "Save location", message: nil)
                     return
                 }
             }
         }
-    }
-    
-    private func showFailure(message: String) {
-        let alert = UIAlertController(title: "Save location", message: message, preferredStyle: .alert )
-            alert.addAction(UIAlertAction (title: "OK", style: .default, handler: { _ in
-                return
-        }))
-        self.present(alert, animated: true, completion: nil)
     }
     
 }

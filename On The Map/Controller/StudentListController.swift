@@ -31,7 +31,7 @@ class StudentListController: UIViewController {
     
     
     private func getStudentLocations() {
-        _ = UdacityApi.getStudentLocations() { studentLocationsResponse, error in
+        UdacityApi.getStudentLocations() { studentLocationsResponse, error in
             if let studentLocations: [StudentInformation] = studentLocationsResponse?.results {
                 self.usersData = studentLocations
                 DispatchQueue.main.async {
@@ -39,7 +39,7 @@ class StudentListController: UIViewController {
                 }
             } else {
                 DispatchQueue.main.async {
-                    self.showFailure(title: "List Load Failed", localizedMessage: error?.localizedDescription ?? "Something went wrong!")
+                    self.showError(title: "List Load Failed", message: error?.localizedDescription ?? "Something went wrong!")
                 }
             }
         }
@@ -72,17 +72,11 @@ extension StudentListController: UITableViewDataSource, UITableViewDelegate {
         if let url = URL(string: studentInfo?.mediaURL! ?? "") {
             UIApplication.shared.open(url, options: [:]) { result in
                 if !result {
-                    self.showFailure(title: "Open URL", localizedMessage: "Open URL Failed: \(studentInfo?.mediaURL ?? "")")
+                    self.showError(title: "Open URL", message: "Open URL Failed: \(studentInfo?.mediaURL ?? "")")
                 }
             }
         } else {
-            showFailure(title: "Open URL", localizedMessage: "Open URL Failed due to empty url")
+            showError(title: "Open URL", message: "Open URL Failed due to empty url")
         }
-    }
-    
-    private func showFailure(title: String, localizedMessage: String?) {
-        let alertVC = UIAlertController(title: title, message: localizedMessage ?? "Something went wrong!", preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alertVC, animated: true, completion: nil)
     }
 }

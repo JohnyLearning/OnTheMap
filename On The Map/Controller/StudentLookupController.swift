@@ -29,7 +29,7 @@ class StudentLookupController: UIViewController {
     }
     
     private func getStudentLocations() {
-        _ = UdacityApi.getStudentLocations() { studentLocationsResponse, error in
+        UdacityApi.getStudentLocations() { studentLocationsResponse, error in
             if let studentLocations: [StudentInformation] = studentLocationsResponse?.results {
                 var annotations = [MKPointAnnotation]()
                 for studentInformation in studentLocations {

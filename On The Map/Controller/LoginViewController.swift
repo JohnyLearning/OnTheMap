@@ -54,9 +54,7 @@ class LoginViewController: UIViewController {
     
     private func showLoginFailure(message: String) {
         setLoggingIn(false)
-        let alertVC = UIAlertController(title: "Login Failed", message: message, preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        show(alertVC, sender: nil)
+        showError(title: "Login Failed", message: message)
     }
         
 }
