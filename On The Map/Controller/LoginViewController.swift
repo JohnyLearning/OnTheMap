@@ -42,11 +42,7 @@ class LoginViewController: UIViewController {
     }
     
     private func setLoggingIn(_ loggingIn: Bool) {
-        if loggingIn {
-            activityIndicator.startAnimating()
-        } else {
-            activityIndicator.stopAnimating()
-        }
+        loggingIn ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
         email.isEnabled = !loggingIn
         password.isEnabled = !loggingIn
         loginButton.isEnabled = !loggingIn
