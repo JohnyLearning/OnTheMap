@@ -33,8 +33,9 @@ class LoginViewController: UIViewController {
         setLoggingIn(false)
         if result {
             if let studentLookupTabBar = self.storyboard?.instantiateViewController(withIdentifier: "StudentTabBar") {
-                self.view.window?.rootViewController = studentLookupTabBar
+                self.present (studentLookupTabBar, animated: true, completion: nil)
             }
+
         } else {
             showLoginFailure(message: error?.localizedDescription ?? "")
         }

@@ -26,9 +26,7 @@ class StudentListController: UIViewController {
     
     @IBAction func logout(_ sender: Any) {
         UdacityApi.deleteSession()
-        if let loginView = self.storyboard?.instantiateViewController(withIdentifier: "LoginView") {
-            self.view.window?.rootViewController = loginView
-        }
+        self.tabBarController?.dismiss(animated: true, completion: nil)
     }
     
     
